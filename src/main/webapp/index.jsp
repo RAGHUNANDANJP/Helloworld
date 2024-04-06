@@ -7,13 +7,13 @@
 <title>Hello, World!</title>
 <style>
 body { 
-     background-color: yellow;
+     background-color: orange;
 }
 </style>
 </head>
 <body>
 <h1>Hello, World!</h1>
-<p>This is a sample "Hello, World!" application for 2024 April.</p>
+<p>Setting Up Continuous Integration and Deployment (CI/CD).</p>
 </body>
 </html>
 
