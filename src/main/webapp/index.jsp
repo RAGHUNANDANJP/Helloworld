@@ -7,13 +7,13 @@
 <title>Hello, World!</title>
 <style>
 body { 
-     background-color: orange;
+     background-color: yellow;
 }
 </style>
 </head>
 <body>
 <h1>Hello, World!</h1>
-<p>Setting Up Continuous Integration and Deployment (CI/CD).</p>
+<p>Setting Up Continuous Integration and Deployment (CI/CD) Project.</p>
 </body>
 </html>
 
