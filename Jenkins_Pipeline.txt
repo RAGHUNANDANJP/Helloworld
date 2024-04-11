@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Stage1 clone') {
             steps {
-                echo 'git clone the repo'
+                echo 'Git Clone The Repo'
                 git 'https://github.com/RAGHUNANDANJP/Helloworld.git'
             }
         }
         stage('Stage2 Build') {
             steps {
-                echo 'Build  the project'
+                echo 'Build  The Project'
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
         }
