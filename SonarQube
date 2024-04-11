@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your/repository.git'
+                git 'https://github.com/RAGHUNANDANJP/Helloworld.git'
             }
         }
 
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     def scannerHome = tool 'SonarQubeScanner';
-                    withSonarQubeEnv('SonarQubeServer') {
+                    withSonarQubeEnv('http://3.70.131.102:9000/') {
                         sh "${scannerHome}/bin/sonar-scanner"
                     }
                 }
