@@ -9,7 +9,7 @@ pipeline {
             }
         }
      }
-        stage('Build') {
+        stage('Build1') {
             steps {
                 echo 'Running Code Analysis...'
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
