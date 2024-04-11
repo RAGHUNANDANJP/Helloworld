@@ -9,12 +9,6 @@ pipeline {
             }
         }
      }
-        stage('Build1') {
-            steps {
-                echo 'Running Code Analysis...'
-                sh "mvn -Dmaven.test.failure.ignore=true clean package"
-            }
-        }
         stage('Test') {
             steps {
         	echo 'Running tests...'
@@ -23,14 +17,19 @@ pipeline {
               }
             }
         }
+        stage('Build1') {
+            steps {
+                echo 'Running Code Analysis...'
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
                deploy adapters: [tomcat9(credentialsId: 'Tomcat', path: '', url: 'http://3.126.251.202:8080/')], contextPath: null, war: '**/*.war'
             }
         }
-    }
-    
+    }    
     post {
         success {
             echo 'Pipeline executed successfully!'
