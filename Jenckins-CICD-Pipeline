@@ -2,14 +2,14 @@ pipeline {
     agent any
     
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
                 echo 'Building the Project...'
                 git 'https://github.com/RAGHUNANDANJP/Helloworld.git'
             }
         }
         
-        stage('Test') {
+        stage('Build') {
             steps {
                 echo 'Running tests...'
 		script {
