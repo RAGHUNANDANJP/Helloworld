@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     stages {
-        stage('Checkout') {
+        stage('Build') {
             steps {
                 echo 'Building the Project...'
                 git 'https://github.com/RAGHUNANDANJP/Helloworld.git'
