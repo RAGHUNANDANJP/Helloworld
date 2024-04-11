@@ -17,15 +17,13 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Running tests...'
-		script {
-                    def scannerHome = tool 'SonarQubeScanner';
-                    withSonarQubeEnv('http://3.70.131.102:9000/') {
-                        sh "${scannerHome}/bin/sonar-scanner"
-                    }
-                }
+        	echo 'Running tests...'
+              withSonarQubeEnv('http://3.70.131.102:9000/') {
+                sh 'mvn clean package sonar:sonar'
+              }
             }
         }
+ }
         
        
         stage('Deploy') {
