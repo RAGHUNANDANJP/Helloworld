@@ -8,26 +8,26 @@ pipeline {
                 git 'https://github.com/RAGHUNANDANJP/Helloworld.git'
             }
         }
-        
+}
         stage('Build') {
+            steps {
+                echo 'Running Code Analysis...'
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+        }
+        stage('Test') {
             steps {
                 echo 'Running tests...'
 		script {
                     def scannerHome = tool 'SonarQubeScanner';
-                    withSonarQubeEnv('SonarQubeServer') {
+                    withSonarQubeEnv('http://3.70.131.102:9000/') {
                         sh "${scannerHome}/bin/sonar-scanner"
                     }
                 }
             }
         }
         
-        stage('Code Analysis') {
-            steps {
-                echo 'Running Code Analysis...'
-                sh "mvn -Dmaven.test.failure.ignore=true clean package"
-            }
-        }
-        
+       
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
