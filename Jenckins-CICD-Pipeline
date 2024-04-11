@@ -11,12 +11,14 @@ pipeline {
      }
         stage('Test') {
             steps {
+        script {
         	echo 'Running tests...'
               withSonarQubeEnv('http://3.70.131.102:9000/') {
                 sh 'mvn clean package sonar:sonar'
               }
             }
         }
+}
         stage('Build1') {
             steps {
                 echo 'Running Code Analysis...'
