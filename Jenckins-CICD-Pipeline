@@ -8,7 +8,7 @@ pipeline {
                 git 'https://github.com/RAGHUNANDANJP/Helloworld.git'
             }
         }
-}
+     }
         stage('Build') {
             steps {
                 echo 'Running Code Analysis...'
@@ -23,9 +23,6 @@ pipeline {
               }
             }
         }
- }
-        
-       
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
