@@ -4,17 +4,20 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                // Build your application
+                echo 'Git Clone The Repo'
+                git 'https://github.com/RAGHUNANDANJP/Helloworld.git'
             }
         }
         stage('Unit Test') {
             steps {
-                // Run unit tests
+                echo 'Build  The Project'
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
         }
         stage('Deploy to Development') {
             steps {
-                // Deploy to development environment
+                echo 'Deploy the project to Tomcat'
+                deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://52.221.200.199:8080/')], contextPath: null, war: '**/*.war'
             }
         }
         stage('Manual Approval - Staging') {
