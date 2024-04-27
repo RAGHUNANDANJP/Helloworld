@@ -17,7 +17,7 @@ pipeline {
         stage('Deploy to Development') {
             steps {
                 echo 'Deploy the project to Tomcat'
-                deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://52.221.200.199:8080/')], contextPath: null, war: '**/*.war'
+               // deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://52.221.200.199:8080/')], contextPath: null, war: '**/*.war'
             }
         }
         stage('Manual Approval - Staging') {
